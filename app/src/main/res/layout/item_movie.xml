@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.lutawav.naver_movie.data.model.Movie" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:urlImage="@{movie.image}" />
+
+        <TextView
+            android:id="@+id/movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/movie_image"
+            app:layout_constraintTop_toTopOf="parent"
+            app:htmlText="@{movie.title}"
+            tools:text="스파이더맨 노웨이 홈" />
+
+        <CheckBox
+            android:id="@+id/movie_favorite"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:button="@drawable/ic_favorite"
+            app:layout_constraintEnd_toEndOf="@+id/movie_title"
+            app:layout_constraintTop_toTopOf="@+id/movie_title"
+            android:layout_marginEnd="5dp" />
+
+        <TextView
+            android:id="@+id/movie_director"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/movie_image"
+            app:layout_constraintTop_toBottomOf="@id/movie_title"
+            android:text="@{movie.director}"
+            tools:text="존 왓츠" />
+
+        <TextView
+            android:id="@+id/movie_actor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            app:layout_constraintStart_toEndOf="@+id/movie_image"
+            app:layout_constraintTop_toBottomOf="@id/movie_director"
+            android:text="@{movie.actor}"
+            tools:text="톰 홀랜드, 젠데이야 콜먼" />
+
+        <TextView
+            android:id="@+id/movie_rating"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/movie_image"
+            app:layout_constraintTop_toBottomOf="@id/movie_actor"
+            android:text="@{movie.userRating}"
+            tools:text="4.5" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
